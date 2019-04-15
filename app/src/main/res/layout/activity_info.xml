@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.InfoActivity">
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="身高："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:enabled="false"
+            android:id="@+id/height"
+            android:layout_weight="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="体重："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:enabled="false"
+            android:id="@+id/et_weight"
+            android:layout_weight="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_edit"
+        android:text="修改"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_down"
+        android:text="确定"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+      <LinearLayout
+          android:gravity="center"
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <LinearLayout
+              android:padding="10dp"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:text="运动名称"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+                  <EditText
+                      android:id="@+id/et_sport_name"
+                      android:layout_width="100dp"
+                      android:layout_height="wrap_content" />
+              </LinearLayout>
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:text="运动时长"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+                  <EditText
+                      android:id="@+id/et_sport_time"
+                      android:layout_width="100dp"
+                      android:layout_height="wrap_content" />
+              </LinearLayout>
+          </LinearLayout>
+          <Button
+              android:layout_gravity="center"
+              android:id="@+id/btn_add_sport"
+              android:text="添加运动"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+      </LinearLayout>
+        <Button
+            android:id="@+id/btn_query_sport"
+            android:text="查询运动"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>
