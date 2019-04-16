@@ -41,8 +41,6 @@ public class ReadFragment extends Fragment {
         LitePal.deleteAll(Passage.class);
         MyDB.formPassage();
         data = (ArrayList<Passage>) LitePal.findAll(Passage.class);
-
-
         PassageAdapter adapter = new PassageAdapter(getContext(),data);
         listView.setAdapter(adapter);
         return view;

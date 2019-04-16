@@ -53,7 +53,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getContext(),InfoActivity.class));
                 break;
             case R.id.tv_body_exam:
-                Intent intent = new Intent(getContext(), AlarmActivity.class);
+                Intent intent = new Intent(getContext(),AlarmActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_online_consult:

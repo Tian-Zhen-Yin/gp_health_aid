@@ -1,57 +1,62 @@
 package com.example.yangyang.gp_health_aid.adapter;
 
 import android.content.Context;
-import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.yangyang.gp_health_aid.R;
-import com.example.yangyang.gp_health_aid.activity.PassageActivity;
+import com.example.yangyang.gp_health_aid.ViewHolder.HistoryHolder;
+
 import com.example.yangyang.gp_health_aid.bean.History;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class HistoryAdapter extends BaseAdapter {
-    private Context context;
-    private ArrayList<History> data;
-    public HistoryAdapter(Context mcontext,ArrayList<History> data)
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryHolder> {
+    private List<History> mDataList;
+    private Context mContext;
+    History history=PassageAdapter.history;
+    private  HistoryAdapter.OnDeleteButtonClick onDeleteButtonClick;
+
+
+    public  HistoryAdapter(List<History> mDataList, MAdapter.OnDeleteButtonClick onDeleteButtonClick) {
+
+      this.mDataList = mDataList;
+      this.onDeleteButtonClick = (OnDeleteButtonClick) onDeleteButtonClick;
+
+
+    }
+
+    @Override
+    public HistoryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        mContext = parent.getContext();
+        return new HistoryHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.history_item,parent,false));
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull HistoryHolder holder, int i)
     {
-        this.context=mcontext;
-        this.data=data;
-    }
-    @Override
-    public int getCount() {
-        return data.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return data.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view=inflater.inflate(R.layout.item,parent,false);
-        TextView textView=view.findViewById(R.id.history);
-        textView.setText(data.get(position).getTitle());
-        textView.setOnClickListener(new View.OnClickListener() {
+        history= mDataList.get(i);
+        holder.show.setText( history.getTitle());
+        holder.tv_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, PassageActivity.class);
-                intent.putExtra("uri",data.get(position).getUrl());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
-                context.startActivity(intent);
+                onDeleteButtonClick.onBtnClicked(i,  history, holder.show);
             }
         });
-        return view;
+
     }
+    @Override
+    public int getItemCount() {
+        return mDataList.size();
+    }
+
+    public interface OnDeleteButtonClick{
+        void onBtnClicked(int position, History data, TextView show);
+    }
+
+
 }

@@ -1,16 +1,13 @@
 package com.example.yangyang.gp_health_aid.bean;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class History {
+public class History extends LitePalSupport {
     private String title;
     private String url;
-
-    public History(String s, String s1) {
-        this.title=s;
-        this.url=s1;
-    }
 
     public String getTitle() {
         return title;

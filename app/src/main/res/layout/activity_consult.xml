@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
-        android:id="@+id/et_message"
+        android:id="@+id/question_info"
         android:hint="在此输入你需要咨询的问题，医生会给你回复"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
-        android:id="@+id/btn_down"
+        android:id="@+id/consult_btn"
         android:layout_gravity="end"
         android:text="确定"
         android:layout_width="wrap_content"

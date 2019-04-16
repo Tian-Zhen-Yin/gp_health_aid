@@ -7,7 +7,6 @@ public class Alarm extends LitePalSupport {
     private int id;
     private Boolean alarmActive = true;
     private String alarmData;
-
     public int getId() {
         return id;
     }

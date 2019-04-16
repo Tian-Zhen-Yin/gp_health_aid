@@ -7,6 +7,7 @@
         <mapping class="com.example.yangyang.gp_health_aid.bean.Passage"/>
         <mapping class="com.example.yangyang.gp_health_aid.bean.Sport"/>
         <mapping class="com.example.yangyang.gp_health_aid.bean.Alarm"/>
+        <mapping class="com.example.yangyang.gp_health_aid.bean.History"/>
     </list>
     <storage value="gpf/database" />  //storage 定义数据库文件存储的地方,可选 internal(内部) 和 external（外部）, 默认为 internal
 </litepal>

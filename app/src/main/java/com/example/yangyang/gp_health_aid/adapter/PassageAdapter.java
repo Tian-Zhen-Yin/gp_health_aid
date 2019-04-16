@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,13 +15,15 @@ import com.example.yangyang.gp_health_aid.R;
 import com.example.yangyang.gp_health_aid.activity.PassageActivity;
 import com.example.yangyang.gp_health_aid.bean.History;
 import com.example.yangyang.gp_health_aid.bean.Passage;
+import com.example.yangyang.gp_health_aid.db.HistoryDB;
+import com.example.yangyang.gp_health_aid.db.MyDB;
 
 import java.util.ArrayList;
 
 public class PassageAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Passage> data;
-
+    public static History history;
     public PassageAdapter(Context context, ArrayList<Passage> data) {
         this.context = context;
         this.data = data;
@@ -61,16 +64,23 @@ public class PassageAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,PassageActivity.class);
+                history.setTitle(data.get(i).getTitle());
+                history.setUrl(data.get(i).getPassage_uri());
+                history.save();
                 intent.putExtra("uri",data.get(j).getPassage_uri());
                 context.startActivity(intent);
+
             }
         });
         return view;
     }
+
+
     class ViewHolder{
         TextView textView;
         ImageView imageView;
     }
+
 }
 
 

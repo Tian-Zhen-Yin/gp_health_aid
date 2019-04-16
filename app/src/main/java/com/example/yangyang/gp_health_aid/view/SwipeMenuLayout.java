@@ -49,7 +49,7 @@ import com.example.yangyang.gp_health_aid.R;
  * Date: 16/04/24
  */
 public class SwipeMenuLayout extends ViewGroup {
-    private static final String TAG = "zxt/SwipeMenuLayout";
+    private static final String TAG = "SwipeMenuLayout";
 
     private int mScaleTouchSlop;//为了处理单击事件的冲突
     private int mMaxVelocity;//计算滑动速度用
